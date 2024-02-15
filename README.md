@@ -1,6 +1,6 @@
-# License System API Documentation
+# Safelock License System - API Documentation
 
-Welcome to the License System API Documentation. This API provides endpoints for managing licenses within your system. It allows users to perform operations such as fetching, creating, and deleting licenses.
+Welcome to the Safelock License System - API Documentation. This API provides endpoints for managing licenses within your system. It allows users to perform operations such as fetching, creating, deleting licenses, products and much more.
 
 ## API Routes
 - **Developer:** - https://base.url/api/dev
