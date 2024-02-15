@@ -7,8 +7,8 @@ Welcome to the License System API Documentation. This API provides endpoints for
 ## Base URL
 - https://example.com/api/dev
 
-### Endpoints
-<br>
+## Endpoints
+
 ### Get Licenses
 - **URL**: `/licenses/get`
 - **Method**: GET
