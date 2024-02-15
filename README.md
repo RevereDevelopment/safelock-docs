@@ -4,8 +4,8 @@ Welcome to the License System API Documentation. This API provides endpoints for
 
 ## Developer Route
 
-### Base URL
-https://example.com/api/dev
+## Base URL
+- https://example.com/api/dev
 
 ### Endpoints
 
