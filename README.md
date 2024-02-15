@@ -10,6 +10,47 @@ Welcome to the Safelock License System - API Documentation. This API provides en
 
 ## User Route
 
+### Get Blacklist Data
+
+- **URL**: `/getblacklist`
+- **Method**: GET
+- **Description**: Retrieves blacklisted data with pagination.
+- **Authorization**: Required
+- **Query Parameters**:
+  - `page` (number, optional): Page number for pagination.
+  - `limit` (number, optional): Limit of items per page.
+- **Response**:
+  - `total` (number): Total count of blacklisted items.
+  - `blacklist` (object): Object containing paginated blacklisted data.
+    - `results` (array): Array of blacklisted items within the requested page.
+    - `next` (object, optional): Object containing page number and limit for the next page.
+    - `prev` (object, optional): Object containing page number and limit for the previous page.
+
+### Add Blacklist Data
+
+- **URL**: `/addblacklist`
+- **Method**: POST
+- **Description**: Adds a new entry to the blacklist.
+- **Authorization**: Required
+- **Request Body**:
+  - `blacklisted` (string, required): IP address or HWID to be blacklisted.
+  - `type` (string, required): Type of entry, either "ip" or "hwid".
+  - `product` (string, required): Product associated with the blacklisted entry.
+  - `created_by` (string, required): ID of the user who created the blacklist entry.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+### Delete Blacklist
+
+- **URL**: `/deleteblacklist`
+- **Method**: POST
+- **Description**: Deletes a blacklisted entry.
+- **Authorization**: Required
+- **Request Body**:
+  - `blacklisted` (string, required): ID of the blacklisted entry to be deleted.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
 ### Create User
 - **URL**: `/createuser`
 - **Method**: POST
