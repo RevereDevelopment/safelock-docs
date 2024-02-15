@@ -7,11 +7,58 @@ Welcome to the License System API Documentation. This API provides endpoints for
 - **Client:** - https://base.url/client/dev
 - **User:** - https://base.url/users/dev
 
+
 ## User Route
 
+### Create User
+- **URL**: `/createuser`
+- **Method**: POST
+- **Description**: Creates a new user.
+- **Authorization**: Required
+- **Request Body**:
+  - `created_by` (string, required): ID of the user who is creating the new user.
+  - `data` (object, required): Object containing user details.
+    - `name` (string, required): Name of the user.
+    - `email` (string, required): Email of the user.
+    - `password1` (string, required): Password of the user.
+    - `password2` (string, required): Confirmation password of the user.
+    - `permission` (number, required): Permission level of the user.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+### Delete User
+- **URL**: `/deleteuser`
+- **Method**: POST
+- **Description**: Deletes a user.
+- **Authorization**: Required
+- **Request Body**:
+  - `user` (object, required): Object containing the email of the user to be deleted.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+### Get Users
+- **URL**: `/getusers`
+- **Method**: GET
+- **Description**: Retrieves all users.
+- **Authorization**: Required
+- **Response**:
+  - `users` (array): Array of user objects excluding sensitive information.
+
+### Update User
+- **URL**: `/updateuser`
+- **Method**: POST
+- **Description**: Updates a user.
+- **Authorization**: Required
+- **Request Body**:
+  - `editing` (object, required): Object containing updated user details.
+    - `_id` (string, required): ID of the user to be updated.
+    - `name` (string): Updated name of the user.
+    - `email` (string): Updated email of the user.
+    - `role` (number): Updated permission level of the user.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
 
 ### Create Product
-
 - **URL**: `/createproduct`
 - **Method**: POST
 - **Description**: Creates a new product.
@@ -27,7 +74,6 @@ Welcome to the License System API Documentation. This API provides endpoints for
   - `msg` (string): Message indicating the result of the operation.
 
 ### Get Products
-
 - **URL**: `/getproducts`
 - **Method**: GET
 - **Description**: Retrieves all products.
@@ -37,7 +83,6 @@ Welcome to the License System API Documentation. This API provides endpoints for
   - `latest` (string): Name of the latest product.
 
 ### Delete Product
-
 - **URL**: `/deleteproduct`
 - **Method**: POST
 - **Description**: Deletes a product.
@@ -48,7 +93,6 @@ Welcome to the License System API Documentation. This API provides endpoints for
   - `msg` (string): Message indicating the result of the operation.
 
 ### Update Product
-
 - **URL**: `/updateproduct`
 - **Method**: POST
 - **Description**: Updates a product.
@@ -68,7 +112,6 @@ Welcome to the License System API Documentation. This API provides endpoints for
 ## Client Route
 
 ### Verify License
-
 - **URL**: `/`
 - **Method**: POST
 - **Description**: Verifies a license key for a product.
@@ -104,7 +147,6 @@ Welcome to the License System API Documentation. This API provides endpoints for
   - `msg` (string): Success message.
   - `total` (integer): Total number of licenses fetched.
   - `licenses` (array): Array of license objects.
-
 
 ### Create License
 - **URL**: `/licenses/create`
