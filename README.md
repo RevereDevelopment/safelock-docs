@@ -10,8 +10,42 @@ Welcome to the Safelock License System - API Documentation. This API provides en
 
 ## User Route
 
-### Get Blacklist Data
+### Login
+- **URL**: `/login`
+- **Method**: POST
+- **Description**: Authenticates a user and generates a refresh token.
+- **Request Body**:
+  - `email` (string): User's email or username.
+  - `password` (string): User's password.
+  - `twofactor` (string): Two-factor authentication code (optional).
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
 
+### Logout
+- **URL**: `/logout`
+- **Method**: GET
+- **Description**: Logs out the user by clearing the refresh token cookie.
+- **Response**:
+- `msg` (string): Message indicating the result of the operation.
+
+### Refresh Token
+- **URL**: `/refresh_token`
+- **Method**: POST
+- **Description**: Generates a new access token using the refresh token stored in the cookies.
+- **Authorization**: Requires the presence of the refresh token in the cookies.
+- **Response**:
+  - `access_token` (string): New access token.
+
+### Get User Information
+- **URL**: `/infor`
+- **Method**: GET
+- **Description**: Retrieves user information.
+- **Authorization**: Required
+- **Response**:
+  - User object without password and licenses fields.
+
+
+### Get Blacklist Data
 - **URL**: `/getblacklist`
 - **Method**: GET
 - **Description**: Retrieves blacklisted data with pagination.
@@ -27,7 +61,6 @@ Welcome to the Safelock License System - API Documentation. This API provides en
     - `prev` (object, optional): Object containing page number and limit for the previous page.
 
 ### Add Blacklist Data
-
 - **URL**: `/addblacklist`
 - **Method**: POST
 - **Description**: Adds a new entry to the blacklist.
@@ -41,7 +74,6 @@ Welcome to the Safelock License System - API Documentation. This API provides en
   - `msg` (string): Message indicating the result of the operation.
 
 ### Delete Blacklist
-
 - **URL**: `/deleteblacklist`
 - **Method**: POST
 - **Description**: Deletes a blacklisted entry.
