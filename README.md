@@ -4,10 +4,10 @@ Welcome to the License System API Documentation. This API provides endpoints for
 
 ## Developer Route
 
-## Base URL
+### Base URL
 - https://example.com/api/dev
 
-## Endpoints
+### Endpoints
 
 ### Get Licenses
 - **URL**: `/licenses/get`
