@@ -7,6 +7,64 @@ Welcome to the License System API Documentation. This API provides endpoints for
 - **Client:** - https://base.url/client/dev
 - **User:** - https://base.url/users/dev
 
+## User Route
+
+
+### Create Product
+
+- **URL**: `/createproduct`
+- **Method**: POST
+- **Description**: Creates a new product.
+- **Authorization**: Required
+- **Request Body**:
+  - `data` (object, required): Object containing product details.
+    - `price` (number, required): Price of the product.
+    - `role` (number, required): Role associated with the product.
+    - `version` (string, required): Version of the product.
+    - `download` (string, required): Download link of the product.
+    - `name` (string, required): Name of the product.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+### Get Products
+
+- **URL**: `/getproducts`
+- **Method**: GET
+- **Description**: Retrieves all products.
+- **Authorization**: Required
+- **Response**:
+  - `products` (array): Array of products.
+  - `latest` (string): Name of the latest product.
+
+### Delete Product
+
+- **URL**: `/deleteproduct`
+- **Method**: POST
+- **Description**: Deletes a product.
+- **Authorization**: Required
+- **Request Body**:
+  - `product` (string, required): ID of the product to be deleted.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+### Update Product
+
+- **URL**: `/updateproduct`
+- **Method**: POST
+- **Description**: Updates a product.
+- **Authorization**: Required
+- **Request Body**:
+  - `editing` (object, required): Object containing updated product details.
+    - `_id` (string, required): ID of the product to be updated.
+    - `name` (string, required): Updated name of the product.
+    - `role` (number, required): Updated role associated with the product.
+    - `version` (string, required): Updated version of the product.
+    - `discount` (number, required): Updated discount percentage of the product.
+    - `price` (number, required): Updated price of the product.
+- **Response**:
+  - `msg` (string): Message indicating the result of the operation.
+
+
 ## Client Route
 
 ### Verify License
